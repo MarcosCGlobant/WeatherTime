@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">WeatherTimeApp</string>
+    <string name="app_name">WeatherTime</string>
+    <string name="activity_main_search_button">Search</string>
+    <string name="activity_main_enter_city_name_text">Enter a city</string>
+    <string name="activity_main_city_hint_text">Buenos Aires</string>
+    <string name="activity_main_app_name_text">Weather Time</string>
 </resources>

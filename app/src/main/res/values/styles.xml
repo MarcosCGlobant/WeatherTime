@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SearchButton" >
+        <item name="android:layout_width">@dimen/button_search_width</item>
+        <item name="android:layout_height">@dimen/button_search_height</item>
+        <item name="android:textColor">@color/color_button_search</item>
+    </style>
+
+
 </resources>
