@@ -4,63 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/mainactivitybackground"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/activity_main_appIcon"
+    <ImageView
+        android:id="@+id/activity_main_app_title_icon"
         android:layout_width="@dimen/app_icon_width"
         android:layout_height="@dimen/app_icon_height"
-        android:src="@drawable/icon"
+        android:src="@drawable/mainactivitytitleicon"
         app:layout_constraintBottom_toTopOf="@+id/activity_main_enter_city_text_view"
         app:layout_constraintEnd_toStartOf="@+id/activity_main_app_name_text_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/app_title_icon" />
 
     <TextView
         android:id="@+id/activity_main_app_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/activity_main_app_name_text"
-        android:textColor="@color/app_name_text_color"
-        android:textSize="@dimen/app_name_text_size"
+        style="@style/TextViewAppName"
         app:layout_constraintBottom_toTopOf="@+id/activity_main_enter_city_text_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/activity_main_appIcon"
+        app:layout_constraintStart_toEndOf="@id/activity_main_app_title_icon"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/activity_main_enter_city_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/activity_main_enter_city_name_text"
-        android:textAlignment="center"
-        android:textColor="@color/enter_city_text_color"
-        android:textSize="@dimen/enter_city_text_size"
-        app:layout_constraintTop_toBottomOf="@+id/activity_main_appIcon" />
+        style="@style/TextViewEnterCity"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_app_title_icon" />
 
     <AutoCompleteTextView
         android:id="@+id/activity_main_edit_text_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
         android:hint="@string/activity_main_city_hint_text"
-        android:textColor="@android:color/black"
+        style="@style/AutoCompleteTextView"
         app:layout_constraintBottom_toTopOf="@+id/activity_main_button_search"
         app:layout_constraintTop_toBottomOf="@+id/activity_main_enter_city_text_view" />
 
     <Button
         android:id="@+id/activity_main_button_search"
         style="@style/SearchButton"
-        android:background="@drawable/cloud"
-        android:text="@string/activity_main_search_button"
-        app:layout_constraintBottom_toTopOf="@+id/guideline1"
+        android:background="@drawable/mainactivitysearchbuttonbackground"
+        app:layout_constraintBottom_toTopOf="@+id/activity_main_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_main_edit_text_city" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline1"
+        android:id="@+id/activity_main_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

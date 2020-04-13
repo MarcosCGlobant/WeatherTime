@@ -1,8 +1,5 @@
 <resources>
-
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -12,5 +9,24 @@
         <item name="android:layout_width">@dimen/button_search_width</item>
         <item name="android:layout_height">@dimen/button_search_height</item>
         <item name="android:textColor">@color/color_button_search</item>
+        <item name="android:text">@string/activity_main_search_button</item>
+    </style>
+
+    <style name="TextViewAppName">
+        <item name="android:text">@string/activity_main_app_name_text</item>
+        <item name="android:textColor">@color/app_name_text_color</item>
+        <item name="android:textSize">@dimen/app_name_text_size</item>
+    </style>
+
+    <style name="TextViewEnterCity">
+        <item name="android:text">@string/activity_main_enter_city_name_text</item>
+        <item name="android:textColor">@color/enter_city_text_color</item>
+        <item name="android:textSize">@dimen/enter_city_text_size</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="AutoCompleteTextView">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 </resources>
