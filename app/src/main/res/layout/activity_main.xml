@@ -43,7 +43,7 @@
         android:id="@+id/activity_main_edit_text_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="@android:color/transparent"
         android:hint="@string/activity_main_city_hint_text"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/activity_main_button_search"
