@@ -4,25 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainactivitybackground"
+    android:background="@drawable/main_activity_background"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/activity_main_app_title_icon"
         android:layout_width="@dimen/app_icon_width"
         android:layout_height="@dimen/app_icon_height"
-        android:src="@drawable/mainactivitytitleicon"
+        android:contentDescription="@string/app_title_icon"
+        android:src="@drawable/main_activity_title_icon"
         app:layout_constraintBottom_toTopOf="@+id/activity_main_enter_city_text_view"
         app:layout_constraintEnd_toStartOf="@+id/activity_main_app_name_text_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/app_title_icon" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/activity_main_app_name_text_view"
+        style="@style/TextViewAppName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextViewAppName"
         app:layout_constraintBottom_toTopOf="@+id/activity_main_enter_city_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/activity_main_app_title_icon"
@@ -30,24 +30,24 @@
 
     <TextView
         android:id="@+id/activity_main_enter_city_text_view"
+        style="@style/TextViewEnterCity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/TextViewEnterCity"
         app:layout_constraintTop_toBottomOf="@+id/activity_main_app_title_icon" />
 
     <AutoCompleteTextView
         android:id="@+id/activity_main_edit_text_city"
+        style="@style/AutoCompleteTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/activity_main_city_hint_text"
-        style="@style/AutoCompleteTextView"
         app:layout_constraintBottom_toTopOf="@+id/activity_main_button_search"
         app:layout_constraintTop_toBottomOf="@+id/activity_main_enter_city_text_view" />
 
     <Button
         android:id="@+id/activity_main_button_search"
         style="@style/SearchButton"
-        android:background="@drawable/mainactivitysearchbuttonbackground"
+        android:background="@drawable/main_activity_search_button_background"
         app:layout_constraintBottom_toTopOf="@+id/activity_main_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
