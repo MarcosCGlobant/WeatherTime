@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_search_width">110dp</dimen>
+    <dimen name="button_search_height">50dp</dimen>
+    <dimen name="activity_main_guideline_begin">202dp</dimen>
+    <dimen name="app_icon_width">100dp</dimen>
+    <dimen name="app_icon_height">100dp</dimen>
+    <dimen name="app_name_text_size">35sp</dimen>
+    <dimen name="enter_city_text_size">25sp</dimen>
+</resources>
