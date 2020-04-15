@@ -17,8 +17,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val jsonStringCities = applicationContext.assets.open(FILE_NAME).bufferedReader().use {
-            it.readText()}
         presenter = WeatherTimePresenter(WeatherTimeModel(readCitiesJSONFile()), WeatherTimeView(this))
         presenter.createAndSetCitiesList()
     }
