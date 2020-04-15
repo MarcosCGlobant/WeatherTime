@@ -4,7 +4,7 @@ import com.example.weathertimeapp.mvp.entities.City
 
 interface WeatherTimeContracts {
     interface Model {
-        fun createListOfCities(listOfCities: MutableList<City>): MutableList<String>
+        fun createListOfCities(listOfCities: ArrayList<City>): MutableList<String>
     }
 
     interface View {

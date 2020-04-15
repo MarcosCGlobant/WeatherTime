@@ -10,7 +10,7 @@ import org.json.JSONArray
 
 class WeatherTimeModel(private val citiesJson: String) : WeatherTimeContracts.Model {
 
-    override fun createListOfCities(listOfCities: MutableList<City>): MutableList<String> {
+    override fun createListOfCities(listOfCities: ArrayList<City>): MutableList<String> {
         val jsonArray = JSONArray(citiesJson)
         val stringList = mutableListOf<String>()
         for (i in 0 until jsonArray.length()) {

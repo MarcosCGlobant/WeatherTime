@@ -13,6 +13,6 @@ class WeatherTimePresenter(
     }
 
     companion object {
-        private var cities = mutableListOf<City>()
+        private var cities = ArrayList<City>()
     }
 }
