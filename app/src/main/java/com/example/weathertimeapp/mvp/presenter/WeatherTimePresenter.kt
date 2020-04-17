@@ -15,19 +15,19 @@ class WeatherTimePresenter(
         createAndShowData()
     }
 
-    override fun createAndSetCitiesList() {
+    private fun createAndSetCitiesList() {
         view.setCitiesListAdapter(model.createListOfCities(cities))
     }
 
-    override fun setSoftInputMode() {
+    private fun setSoftInputMode() {
         view.setSoftInputMode()
     }
 
-    override fun initRecyclerView() {
+    private fun initRecyclerView() {
         view.showRecyclerView()
     }
 
-    override fun createAndShowData() {
+    private fun createAndShowData() {
         view.showDataSet(model.createDataSet())
     }
 

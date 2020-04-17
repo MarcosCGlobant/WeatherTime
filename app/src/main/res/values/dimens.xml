@@ -16,5 +16,5 @@
     <dimen name="layout_weather_min_temp_text_view_width">35dp</dimen>
     <dimen name="layout_weather_description_text_view_width">100dp</dimen>
     <dimen name="activity_main_city_name_margin_top">20dp</dimen>
-    <dimen name="card_view_margin_top">15dp</dimen>
+    <dimen name="card_view_margin_top">10dp</dimen>
 </resources>
