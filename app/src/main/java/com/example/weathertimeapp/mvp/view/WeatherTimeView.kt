@@ -15,7 +15,7 @@ class WeatherTimeView(activity: Activity) : ActivityView(activity), WeatherTimeC
 
     private lateinit var weatherAdapter: WeatherRecyclerAdapter
 
-    override fun setSlowInputMode() {
+    override fun setSoftInputMode() {
         activity?.window?.setSoftInputMode(
             WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
         )
