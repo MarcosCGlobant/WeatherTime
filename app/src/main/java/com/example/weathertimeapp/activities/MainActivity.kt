@@ -1,7 +1,7 @@
 package com.example.weathertimeapp.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.weathertimeapp.R
 import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
 import com.example.weathertimeapp.mvp.model.WeatherTimeModel
@@ -15,8 +15,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         presenter = WeatherTimePresenter(WeatherTimeModel(readCitiesJSONFile()), WeatherTimeView(this))
-        presenter.createAndSetCitiesList()
+        presenter.initPresenter()
     }
 
     private fun readCitiesJSONFile(): String {
