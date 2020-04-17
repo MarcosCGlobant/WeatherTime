@@ -25,11 +25,7 @@ class WeatherRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (holder) {
-            is WeatherViewHolder -> {
-                holder.bind(items[position])
-            }
-        }
+        (holder as WeatherViewHolder).bind(items[position])
     }
 
     override fun getItemCount(): Int {
@@ -44,19 +40,21 @@ class WeatherRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         fun bind(weather: Weather) {
 
-            itemView.text_view_date.text = weather.date
-            itemView.text_view_max_temperature.text = weather.maxTemp
-            itemView.text_view_min_temperature.text = weather.minTemp
-            itemView.text_view_description.text = weather.description
+            itemView.apply {
+                text_view_date.text = weather.date
+                text_view_max_temperature.text = weather.maxTemp
+                text_view_min_temperature.text = weather.minTemp
+                text_view_description.text = weather.description
 
-            val requestOptions = RequestOptions()
-                .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_background)
+                val requestOptions = RequestOptions()
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .error(R.drawable.ic_launcher_background)
 
-            Glide.with(itemView.context)
-                .applyDefaultRequestOptions(requestOptions)
-                .load(weather.image)
-                .into(itemView.image_view_weather_icon)
+                Glide.with(itemView.context)
+                    .applyDefaultRequestOptions(requestOptions)
+                    .load(weather.image)
+                    .into(image_view_weather_icon)
+            }
         }
     }
 

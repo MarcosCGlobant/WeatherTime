@@ -18,9 +18,5 @@ interface WeatherTimeContracts {
 
     interface Presenter {
         fun initPresenter()
-        fun setSoftInputMode()
-        fun createAndSetCitiesList()
-        fun initRecyclerView()
-        fun createAndShowData()
     }
 }

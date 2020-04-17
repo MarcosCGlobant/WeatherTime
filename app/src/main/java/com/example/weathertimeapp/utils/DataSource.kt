@@ -58,9 +58,9 @@ class DataSource {
                     "20/04/2020",
                     "15°C",
                     "10°C",
-                    "https://raw.githubusercontent.com/MarcosCGlobant/CalculatorOnboarding/master/app/" +
-                            "app/src/main/java/com/globant/calculator/android/utils/images" +
-                            "/PinClipart.com_clipart-sonne_304053.webp",
+                    "https://raw.githubusercontent.com/MarcosCGlobant/CalculatorOnboarding/master/app" +
+                            "/app/src/main/java/com/globant/calculator/android/utils/images" +
+                            "/PinClipart.com_harley-clipart_19895.webp",
                     "heavy intensity rain"
                 )
             )

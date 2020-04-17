@@ -8,4 +8,5 @@
     <color name="activity_main_city_name_text_color">@color/color_dark_blue</color>
     <color name="activity_main_app_name_text_color">#ffff00</color>
     <color name="activity_main_enter_city_text_color">#FFC44F</color>
+    <color name="white_with_opacity">#59FFFFFF</color>
 </resources>
