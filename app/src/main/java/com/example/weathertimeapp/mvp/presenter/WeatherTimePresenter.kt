@@ -8,8 +8,27 @@ class WeatherTimePresenter(
     private val view: WeatherTimeContracts.View
 ) : WeatherTimeContracts.Presenter {
 
-    override fun createAndSetCitiesList() {
+    override fun initPresenter() {
+        createAndSetCitiesList()
+        setSoftInputMode()
+        initRecyclerView()
+        createAndShowData()
+    }
+
+    private fun createAndSetCitiesList() {
         view.setCitiesListAdapter(model.createListOfCities(cities))
+    }
+
+    private fun setSoftInputMode() {
+        view.setSoftInputMode()
+    }
+
+    private fun initRecyclerView() {
+        view.showRecyclerView()
+    }
+
+    private fun createAndShowData() {
+        view.showDataSet(model.createDataSet())
     }
 
     companion object {

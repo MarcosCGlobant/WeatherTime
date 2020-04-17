@@ -6,28 +6,79 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="appBackground" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@drawable/main_activity_background</item>
+    </style>
+
+    <style name="ImageAppIcon">
+        <item name="android:layout_width">@dimen/activity_main_app_icon_width</item>
+        <item name="android:layout_height">@dimen/activity_main_app_icon_height</item>
+        <item name="android:contentDescription">@string/activity_main_app_title_icon</item>
+        <item name="android:src">@drawable/main_activity_title_icon</item>
+    </style>
+
     <style name="SearchButton">
-        <item name="android:layout_width">@dimen/button_search_width</item>
-        <item name="android:layout_height">@dimen/button_search_height</item>
-        <item name="android:textColor">@color/color_button_search</item>
+        <item name="android:layout_width">@dimen/activity_main_button_search_width</item>
+        <item name="android:layout_height">@dimen/activity_main_button_search_height</item>
+        <item name="android:textColor">@color/activity_main_color_button_search</item>
         <item name="android:text">@string/activity_main_search_button</item>
     </style>
 
     <style name="TextViewAppName">
         <item name="android:text">@string/activity_main_app_name_text</item>
-        <item name="android:textColor">@color/app_name_text_color</item>
-        <item name="android:textSize">@dimen/app_name_text_size</item>
+        <item name="android:textColor">@color/activity_main_app_name_text_color</item>
+        <item name="android:textSize">@dimen/activity_main_app_name_text_size</item>
     </style>
 
     <style name="TextViewEnterCity">
         <item name="android:text">@string/activity_main_enter_city_name_text</item>
-        <item name="android:textColor">@color/enter_city_text_color</item>
-        <item name="android:textSize">@dimen/enter_city_text_size</item>
+        <item name="android:textColor">@color/activity_main_enter_city_text_color</item>
+        <item name="android:textSize">@dimen/activity_main_enter_city_text_size</item>
         <item name="android:textAlignment">center</item>
     </style>
 
     <style name="AutoCompleteTextView">
         <item name="android:background">@android:color/transparent</item>
         <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="TextViewCityName">
+        <item name="android:text">@string/activity_main_city_name_text</item>
+        <item name="android:textColor">@color/activity_main_city_name_text_color</item>
+        <item name="android:textSize">@dimen/activity_main_enter_city_text_size</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="CardViewWeather">
+        <item name="cardBackgroundColor">@color/white_with_opacity</item>
+        <item name="android:layout_marginTop">@dimen/card_view_margin_top</item>
+    </style>
+
+    <style name="TextViewTextStyle">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ImageViewWeather">
+        <item name="android:layout_width">@dimen/layout_weather_image_width</item>
+        <item name="android:layout_height">@dimen/layout_weather_image_height</item>
+        <item name="android:contentDescription">@string/weather_icon</item>
+    </style>
+
+    <style name="TextViewTempWeather" parent="TextViewTextStyle">
+        <item name="android:layout_width">@dimen/layout_weather_max_temp_text_view_width</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="TextViewMaxTempWeather" parent="TextViewTempWeather">
+        <item name="android:background">@android:color/holo_red_light</item>
+    </style>
+
+    <style name="TextViewMinTempWeather" parent="TextViewTempWeather">
+        <item name="android:background">@android:color/holo_blue_light</item>
+    </style>
+
+    <style name="TextViewDescriptionWeather" parent="TextViewTextStyle">
+        <item name="android:layout_width">@dimen/layout_weather_description_text_view_width</item>
+        <item name="android:textAlignment">center</item>
     </style>
 </resources>

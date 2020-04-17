@@ -2,10 +2,12 @@ package com.example.weathertimeapp.mvp.model
 
 import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
 import com.example.weathertimeapp.mvp.entities.City
-import com.example.weathertimeapp.mvp.utils.COUNTRY
-import com.example.weathertimeapp.mvp.utils.COUNTRY_AR
-import com.example.weathertimeapp.mvp.utils.ID
-import com.example.weathertimeapp.mvp.utils.NAME
+import com.example.weathertimeapp.mvp.entities.Weather
+import com.example.weathertimeapp.utils.COUNTRY
+import com.example.weathertimeapp.utils.COUNTRY_AR
+import com.example.weathertimeapp.utils.DataSource
+import com.example.weathertimeapp.utils.ID
+import com.example.weathertimeapp.utils.NAME
 import org.json.JSONArray
 
 class WeatherTimeModel(private val citiesJson: String) : WeatherTimeContracts.Model {
@@ -26,5 +28,9 @@ class WeatherTimeModel(private val citiesJson: String) : WeatherTimeContracts.Mo
             }
         }
         return stringList
+    }
+
+    override fun createDataSet(): ArrayList<Weather> {
+        return DataSource.createDataSet()
     }
 }

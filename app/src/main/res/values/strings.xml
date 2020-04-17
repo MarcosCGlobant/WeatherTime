@@ -4,6 +4,8 @@
     <string name="activity_main_enter_city_name_text">Enter a city</string>
     <string name="activity_main_city_hint_text">Buenos Aires</string>
     <string name="activity_main_app_name_text">Weather Time</string>
-    <string name="app_title_icon">sun and clouds title icon</string>
+    <string name="activity_main_app_title_icon">sun and clouds title icon</string>
+    <string name="activity_main_city_name_text">Tandil</string>
     <string name="weather_icon">weather icon</string>
+    <string name="weather_image">weather image</string>
 </resources>

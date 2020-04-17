@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="button_search_width">110dp</dimen>
-    <dimen name="button_search_height">50dp</dimen>
+    <dimen name="activity_main_button_search_width">110dp</dimen>
+    <dimen name="activity_main_button_search_height">50dp</dimen>
     <dimen name="activity_main_guideline_begin">202dp</dimen>
-    <dimen name="app_icon_width">100dp</dimen>
-    <dimen name="app_icon_height">100dp</dimen>
-    <dimen name="app_name_text_size">35sp</dimen>
-    <dimen name="enter_city_text_size">25sp</dimen>
+    <dimen name="activity_main_app_icon_width">100dp</dimen>
+    <dimen name="activity_main_app_icon_height">100dp</dimen>
+    <dimen name="activity_main_app_name_text_size">35sp</dimen>
+    <dimen name="activity_main_enter_city_text_size">25sp</dimen>
+    <dimen name="activity_main_recycler_view_margin_top">20dp</dimen>
+    <dimen name="layout_weather_card_corner_radius">2dp</dimen>
+    <dimen name="layout_weather_card_elevation">10dp</dimen>
+    <dimen name="layout_weather_image_width">40dp</dimen>
+    <dimen name="layout_weather_image_height">40dp</dimen>
+    <dimen name="layout_weather_max_temp_text_view_width">35dp</dimen>
+    <dimen name="layout_weather_min_temp_text_view_width">35dp</dimen>
+    <dimen name="layout_weather_description_text_view_width">100dp</dimen>
+    <dimen name="activity_main_city_name_margin_top">20dp</dimen>
+    <dimen name="card_view_margin_top">10dp</dimen>
 </resources>
