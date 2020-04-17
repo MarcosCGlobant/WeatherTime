@@ -10,7 +10,7 @@ class WeatherTimePresenter(
 
     override fun initPresenter() {
         createAndSetCitiesList()
-        setSlowInputMode()
+        setSoftInputMode()
         initRecyclerView()
         createAndShowData()
     }
@@ -19,8 +19,8 @@ class WeatherTimePresenter(
         view.setCitiesListAdapter(model.createListOfCities(cities))
     }
 
-    override fun setSlowInputMode() {
-        view.setSlowInputMode()
+    override fun setSoftInputMode() {
+        view.setSoftInputMode()
     }
 
     override fun initRecyclerView() {

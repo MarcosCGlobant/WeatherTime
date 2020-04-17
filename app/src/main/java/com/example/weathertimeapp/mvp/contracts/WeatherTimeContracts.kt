@@ -10,7 +10,7 @@ interface WeatherTimeContracts {
     }
 
     interface View {
-        fun setSlowInputMode()
+        fun setSoftInputMode()
         fun setCitiesListAdapter(cities: MutableList<String>)
         fun showRecyclerView()
         fun showDataSet(data: ArrayList<Weather>)
@@ -18,7 +18,7 @@ interface WeatherTimeContracts {
 
     interface Presenter {
         fun initPresenter()
-        fun setSlowInputMode()
+        fun setSoftInputMode()
         fun createAndSetCitiesList()
         fun initRecyclerView()
         fun createAndShowData()
