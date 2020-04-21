@@ -1,4 +1,4 @@
-package com.example.weathertimeapp.mvp.entities
+package com.example.weathertimeapp.entities
 
 import com.example.weathertimeapp.utils.DEFAULT_STRING
 
