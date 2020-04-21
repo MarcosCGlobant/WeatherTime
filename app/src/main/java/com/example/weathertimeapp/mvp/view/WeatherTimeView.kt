@@ -6,7 +6,6 @@ import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weathertimeapp.adapters.WeatherRecyclerAdapter
 import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
-import com.example.weathertimeapp.mvp.entities.Weather
 import com.example.weathertimeapp.mvp.view.base.ActivityView
 import kotlinx.android.synthetic.main.activity_main.activity_main_edit_text_city
 import kotlinx.android.synthetic.main.activity_main.main_activity_recycler_view
@@ -35,9 +34,5 @@ class WeatherTimeView(activity: Activity) : ActivityView(activity), WeatherTimeC
             weatherAdapter = WeatherRecyclerAdapter()
             adapter = weatherAdapter
         }
-    }
-
-    override fun showDataSet(data: ArrayList<Weather>) {
-        weatherAdapter.submitList(data)
     }
 }
