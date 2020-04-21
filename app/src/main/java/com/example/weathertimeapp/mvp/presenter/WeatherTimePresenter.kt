@@ -25,7 +25,12 @@ class WeatherTimePresenter(
     }
 
     private fun requestCityForecast() {
-        model.getForecastByCityId(3429439).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        model.getForecastByCityId(3429439)
+            .subscribeOn(Schedulers.io())
+            .observeOn(
+                AndroidSchedulers
+                    .mainThread()
+            )
             .subscribe({ forecast ->
                 val request = forecast
             })
