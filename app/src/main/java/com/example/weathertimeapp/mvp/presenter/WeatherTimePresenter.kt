@@ -1,7 +1,7 @@
 package com.example.weathertimeapp.mvp.presenter
 
-import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
 import com.example.weathertimeapp.entities.City
+import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -25,8 +25,8 @@ class WeatherTimePresenter(
     }
 
     private fun requestCityForecast() {
-        model.getForecastByCityId(3429439)
-            .subscribeOn(Schedulers.io())
+        model.getForecastByCityId(CITY_ID) //TODO on a future feature: CITY_ID represents the city,
+            .subscribeOn(Schedulers.io())  //that the user inserts to search the forecast
             .observeOn(
                 AndroidSchedulers
                     .mainThread()
@@ -38,5 +38,6 @@ class WeatherTimePresenter(
 
     companion object {
         private var cities = ArrayList<City>()
+        private const val CITY_ID = 3429439
     }
 }

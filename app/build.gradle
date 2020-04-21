@@ -40,7 +40,7 @@ dependencies {
 
     def lib = rootProject.ext.generalDependencies
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation lib.kotlin
     implementation lib.appcompat
     implementation lib.coreKtx
     implementation lib.constraintlayout
