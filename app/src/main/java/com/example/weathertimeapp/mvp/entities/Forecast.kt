@@ -1,6 +1,6 @@
 package com.example.weathertimeapp.mvp.entities
 
 data class Forecast(
-    val list: ArrayList<Day> = arrayListOf(),
+    val list: List<Day> = listOf(),
     val city: City = City()
 )
