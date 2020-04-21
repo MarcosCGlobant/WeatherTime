@@ -27,13 +27,8 @@ class WeatherTimePresenter(
     private fun requestCityForecast() {
         model.getForecastByCityId(CITY_ID) //TODO on a future feature: CITY_ID represents the city,
             .subscribeOn(Schedulers.io())  //that the user inserts to search the forecast
-            .observeOn(
-                AndroidSchedulers
-                    .mainThread()
-            )
-            .subscribe({ forecast ->
-                val request = forecast
-            })
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ forecast -> val request = forecast })
     }
 
     companion object {
