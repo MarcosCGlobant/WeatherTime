@@ -1,7 +1,7 @@
 package com.example.weathertimeapp.mvp.presenter
 
 import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
-import com.example.weathertimeapp.mvp.entities.City
+import com.example.weathertimeapp.entities.City
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

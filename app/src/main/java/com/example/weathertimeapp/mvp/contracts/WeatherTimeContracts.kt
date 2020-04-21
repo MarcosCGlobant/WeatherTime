@@ -1,6 +1,6 @@
 package com.example.weathertimeapp.mvp.contracts
 
-import com.example.weathertimeapp.mvp.entities.City
+import com.example.weathertimeapp.entities.City
 import com.example.weathertimeapp.services.response.ForecastResponse
 import io.reactivex.Observable
 

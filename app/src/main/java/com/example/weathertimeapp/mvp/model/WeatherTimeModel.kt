@@ -1,7 +1,7 @@
 package com.example.weathertimeapp.mvp.model
 
 import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
-import com.example.weathertimeapp.mvp.entities.City
+import com.example.weathertimeapp.entities.City
 import com.example.weathertimeapp.services.ForecastRequestGenerator
 import com.example.weathertimeapp.services.api.WeatherTimeApi
 import com.example.weathertimeapp.services.response.ForecastResponse

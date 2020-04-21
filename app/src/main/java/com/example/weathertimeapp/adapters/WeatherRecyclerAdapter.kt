@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weathertimeapp.R
-import com.example.weathertimeapp.mvp.entities.Weather
+import com.example.weathertimeapp.entities.Weather
 
 class WeatherRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
