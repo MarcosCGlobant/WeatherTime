@@ -1,7 +1,9 @@
 package com.example.weathertimeapp.mvp.presenter
 
+import com.example.weathertimeapp.entities.City
 import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
-import com.example.weathertimeapp.mvp.entities.City
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class WeatherTimePresenter(
     private val model: WeatherTimeContracts.Model,
@@ -11,8 +13,7 @@ class WeatherTimePresenter(
     override fun initPresenter() {
         createAndSetCitiesList()
         setSoftInputMode()
-        initRecyclerView()
-        createAndShowData()
+        requestCityForecast()
     }
 
     private fun createAndSetCitiesList() {
@@ -23,15 +24,15 @@ class WeatherTimePresenter(
         view.setSoftInputMode()
     }
 
-    private fun initRecyclerView() {
-        view.showRecyclerView()
-    }
-
-    private fun createAndShowData() {
-        view.showDataSet(model.createDataSet())
+    private fun requestCityForecast() {
+        model.getForecastByCityId(CITY_ID) //TODO on a future feature: CITY_ID represents the city,
+            .subscribeOn(Schedulers.io())  //that the user inserts to search the forecast
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ forecast -> val request = forecast })
     }
 
     companion object {
         private var cities = ArrayList<City>()
+        private const val CITY_ID = 3429439
     }
 }

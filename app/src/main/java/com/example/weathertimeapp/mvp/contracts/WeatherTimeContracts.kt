@@ -1,19 +1,19 @@
 package com.example.weathertimeapp.mvp.contracts
 
-import com.example.weathertimeapp.mvp.entities.City
-import com.example.weathertimeapp.mvp.entities.Weather
+import com.example.weathertimeapp.entities.City
+import com.example.weathertimeapp.services.response.ForecastResponse
+import io.reactivex.Observable
 
 interface WeatherTimeContracts {
     interface Model {
         fun createListOfCities(listOfCities: ArrayList<City>): MutableList<String>
-        fun createDataSet(): ArrayList<Weather>
+        fun getForecastByCityId(id: Int): Observable<ForecastResponse>
     }
 
     interface View {
         fun setSoftInputMode()
         fun setCitiesListAdapter(cities: MutableList<String>)
         fun showRecyclerView()
-        fun showDataSet(data: ArrayList<Weather>)
     }
 
     interface Presenter {

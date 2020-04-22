@@ -4,15 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.example.weathertimeapp.R
-import com.example.weathertimeapp.mvp.entities.Weather
-import kotlinx.android.synthetic.main.layout_weather_list_item.view.image_view_weather_icon
-import kotlinx.android.synthetic.main.layout_weather_list_item.view.text_view_date
-import kotlinx.android.synthetic.main.layout_weather_list_item.view.text_view_description
-import kotlinx.android.synthetic.main.layout_weather_list_item.view.text_view_max_temperature
-import kotlinx.android.synthetic.main.layout_weather_list_item.view.text_view_min_temperature
+import com.example.weathertimeapp.entities.Weather
 
 class WeatherRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -39,23 +32,6 @@ class WeatherRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     class WeatherViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(weather: Weather) {
-
-            itemView.apply {
-                text_view_date.text = weather.date
-                text_view_max_temperature.text = weather.maxTemp
-                text_view_min_temperature.text = weather.minTemp
-                text_view_description.text = weather.description
-
-                val requestOptions = RequestOptions()
-                    .placeholder(R.drawable.ic_launcher_background)
-                    .error(R.drawable.ic_launcher_background)
-
-                Glide.with(itemView.context)
-                    .applyDefaultRequestOptions(requestOptions)
-                    .load(weather.image)
-                    .into(image_view_weather_icon)
-            }
         }
     }
-
 }
