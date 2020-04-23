@@ -32,7 +32,6 @@ class WeatherTimePresenter(
     }
 
     companion object {
-        private var cities = ArrayList<City>()
         private const val CITY_ID = 3429439
     }
 }
