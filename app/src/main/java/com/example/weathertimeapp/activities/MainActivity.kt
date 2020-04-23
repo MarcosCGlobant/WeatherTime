@@ -16,17 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter = WeatherTimePresenter(WeatherTimeModel(readCitiesJSONFile()), WeatherTimeView(this))
+        presenter = WeatherTimePresenter(WeatherTimeModel(this.assets), WeatherTimeView(this))
         presenter.initPresenter()
-    }
-
-    private fun readCitiesJSONFile(): String {
-        return applicationContext.assets.open(FILE_NAME).bufferedReader().use {
-            it.readText()
-        }
-    }
-
-    companion object {
-        private const val FILE_NAME = "city.list.json"
     }
 }

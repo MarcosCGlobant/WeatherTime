@@ -17,7 +17,7 @@ class WeatherTimePresenter(
     }
 
     private fun createAndSetCitiesList() {
-        view.setCitiesListAdapter(model.createListOfCities(cities))
+        view.setCitiesListAdapter(model.createListOfCities())
     }
 
     private fun setSoftInputMode() {

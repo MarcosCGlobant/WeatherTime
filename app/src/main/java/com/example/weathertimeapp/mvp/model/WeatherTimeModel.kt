@@ -1,5 +1,6 @@
 package com.example.weathertimeapp.mvp.model
 
+import android.content.res.AssetManager
 import com.example.weathertimeapp.entities.City
 import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
 import com.example.weathertimeapp.services.ForecastRequestGenerator
@@ -12,26 +13,25 @@ import com.example.weathertimeapp.utils.NAME
 import io.reactivex.Observable
 import org.json.JSONArray
 
-class WeatherTimeModel(private val citiesJson: String) : WeatherTimeContracts.Model {
+class WeatherTimeModel(private val assetManager: AssetManager) : WeatherTimeContracts.Model {
 
     private val api: ForecastRequestGenerator = ForecastRequestGenerator()
 
-    override fun createListOfCities(listOfCities: ArrayList<City>): MutableList<String> {
-        val jsonArray = JSONArray(citiesJson)
-        val stringList = mutableListOf<String>()
-        for (i in 0 until jsonArray.length()) {
-            val jsonObject = jsonArray.getJSONObject(i)
-            if (jsonObject.get(COUNTRY) == COUNTRY_AR) {
+    override fun createListOfCities(): MutableList<String> {
+        val citiesArray = JSONArray(assetManager.open(FILE_NAME).bufferedReader().use { it.readText() })
+        val listOfCities = mutableListOf<String>()
+        for (i in 0 until citiesArray.length()) {
+            val cityJsonObject = citiesArray.getJSONObject(i)
+            if (cityJsonObject.get(COUNTRY) == COUNTRY_AR) {
                 val city = City(
-                    jsonObject.get(ID).toString().toInt(),
-                    jsonObject.get(NAME).toString(),
-                    jsonObject.get(COUNTRY).toString()
+                    cityJsonObject.get(ID).toString().toInt(),
+                    cityJsonObject.get(NAME).toString(),
+                    cityJsonObject.get(COUNTRY).toString()
                 )
-                stringList.add(city.name)
-                listOfCities.add(city)
+                listOfCities.add(city.name)
             }
         }
-        return stringList
+        return listOfCities
     }
 
     override fun getForecastByCityId(id: Int): Observable<ForecastResponse> {
@@ -52,5 +52,6 @@ class WeatherTimeModel(private val citiesJson: String) : WeatherTimeContracts.Mo
     companion object {
         private const val ID_CITY = "id"
         private const val APPID = "APPID"
+        private const val FILE_NAME = "city_list.json"
     }
 }
