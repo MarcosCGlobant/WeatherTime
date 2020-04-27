@@ -1,6 +1,6 @@
-package com.example.weathertimeapp.services.api
+package com.example.weathertimeapp.data.services.api
 
-import com.example.weathertimeapp.services.response.ForecastResponse
+import com.example.weathertimeapp.data.services.response.ForecastResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.QueryMap

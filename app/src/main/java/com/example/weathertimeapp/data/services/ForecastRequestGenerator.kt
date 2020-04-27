@@ -1,4 +1,4 @@
-package com.example.weathertimeapp.services
+package com.example.weathertimeapp.data.services
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
