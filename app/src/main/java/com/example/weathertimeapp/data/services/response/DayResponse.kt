@@ -1,4 +1,4 @@
-package com.example.weathertimeapp.services.response
+package com.example.weathertimeapp.data.services.response
 
 import com.example.weathertimeapp.utils.DEFAULT_STRING
 
