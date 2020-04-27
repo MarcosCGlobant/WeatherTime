@@ -12,10 +12,10 @@ class WeatherTimePresenter(
     override fun initPresenter() {
         createAndSetCitiesList()
         setSoftInputMode()
-        requestCityForecast()
     }
 
     private fun createAndSetCitiesList() {
+
         view.setCitiesListAdapter(model.createListOfCities())
     }
 
@@ -23,16 +23,26 @@ class WeatherTimePresenter(
         view.setSoftInputMode()
     }
 
-    private fun requestCityForecast() {
-        var subscribe = model.getForecastByCityId(CITY_ID) //TODO on a future feature: CITY_ID represents the city,
-            .subscribeOn(Schedulers.io())                  //that the user inserts to search the forecast
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { forecast ->
-                view.showForecastRecyclerView(forecast)
-            }
+    override fun onSearchButtonPressed(cityName: String) {
+        view.showLoading()
+        model.getCityId(cityName)?.let { requestCityForecast(it) }
     }
 
-    companion object {
-        private const val CITY_ID = 3429439
+    private fun requestCityForecast(id: Int) {
+        var subscribe = model.getForecastByCityId(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ forecast ->
+                if (forecast == null) {
+                    view.showToastNoItemToShow()
+                } else {
+                    view.showForecastRecyclerView(forecast)
+                }
+                view.hideLoading()
+
+            }, { e ->
+                view.hideLoading()
+                view.showToastNetworkError(e.message.toString())
+            })
     }
 }

@@ -19,10 +19,11 @@ class WeatherTimeModel(private val assetManager: AssetManager) : WeatherTimeCont
 
     private val api: ForecastRequestGenerator = ForecastRequestGenerator()
     private val mapper: ForecastMapperService = ForecastMapperService()
+    private val mapOfCities = mutableMapOf<String, String>()
 
     override fun createListOfCities(): MutableList<String> {
-        val citiesArray = JSONArray(assetManager.open(FILE_NAME).bufferedReader().use { it.readText() })
         val listOfCities = mutableListOf<String>()
+        val citiesArray = JSONArray(assetManager.open(FILE_NAME).bufferedReader().use { it.readText() })
         for (i in 0 until citiesArray.length()) {
             val cityJsonObject = citiesArray.getJSONObject(i)
             if (cityJsonObject.get(COUNTRY) == COUNTRY_AR) {
@@ -31,10 +32,15 @@ class WeatherTimeModel(private val assetManager: AssetManager) : WeatherTimeCont
                     cityJsonObject.get(NAME).toString(),
                     cityJsonObject.get(COUNTRY).toString()
                 )
+                mapOfCities[city.name] = city.id.toString()
                 listOfCities.add(city.name)
             }
         }
         return listOfCities
+    }
+
+    override fun getCityId(cityName: String): Int? {
+        return mapOfCities[cityName]?.toInt()
     }
 
     override fun getForecastByCityId(id: Int): Observable<Forecast> {
