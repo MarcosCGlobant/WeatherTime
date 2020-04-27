@@ -1,6 +1,8 @@
 package com.example.weathertimeapp.mvp.presenter
 
 import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
+import com.example.weathertimeapp.utils.EMPTY_STRING
+import com.example.weathertimeapp.utils.UNKNOWN
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -24,25 +26,29 @@ class WeatherTimePresenter(
     }
 
     override fun onSearchButtonPressed(cityName: String) {
-        view.showLoading()
-        model.getCityId(cityName)?.let { requestCityForecast(it) }
+        if (cityName != EMPTY_STRING) {
+            view.showLoading()
+            model.getCityId(cityName)?.let { requestCityForecast(it) }
+        } else {
+            view.showInsertCityNameError()
+        }
     }
 
     private fun requestCityForecast(id: Int) {
-        var subscribe = model.getForecastByCityId(id)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ forecast ->
-                if (forecast == null) {
-                    view.showToastNoItemToShow()
-                } else {
+        if (id == UNKNOWN) {
+            view.hideLoading()
+            view.showToastNoItemToShowError()
+        } else {
+            var subscribe = model.getForecastByCityId(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ forecast ->
                     view.showForecastRecyclerView(forecast)
-                }
-                view.hideLoading()
-
-            }, { e ->
-                view.hideLoading()
-                view.showToastNetworkError(e.message.toString())
-            })
+                    view.hideLoading()
+                }, {
+                    view.hideLoading()
+                    view.showToastNetworkError()
+                })
+        }
     }
 }

@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initSearchButtonOnClickListener() {
         activity_main_button_search.setOnClickListener {
-            presenter.onSearchButtonPressed(activity_main_autocomplete_text_view_city.text.toString())
+            presenter.onSearchButtonPressed(activity_main_autocomplete_text_view_city?.text.toString())
         }
     }
 }

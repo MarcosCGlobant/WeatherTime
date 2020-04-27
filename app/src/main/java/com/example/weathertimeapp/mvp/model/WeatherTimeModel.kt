@@ -12,6 +12,7 @@ import com.example.weathertimeapp.utils.COUNTRY_AR
 import com.example.weathertimeapp.utils.ID
 import com.example.weathertimeapp.utils.NAME
 import com.example.weathertimeapp.utils.UNIT
+import com.example.weathertimeapp.utils.UNKNOWN
 import io.reactivex.Observable
 import org.json.JSONArray
 
@@ -40,7 +41,9 @@ class WeatherTimeModel(private val assetManager: AssetManager) : WeatherTimeCont
     }
 
     override fun getCityId(cityName: String): Int? {
-        return mapOfCities[cityName]?.toInt()
+        return if (mapOfCities.containsKey(cityName)) {
+            mapOfCities[cityName]?.toInt()
+        } else UNKNOWN
     }
 
     override fun getForecastByCityId(id: Int): Observable<Forecast> {

@@ -44,15 +44,20 @@ class WeatherTimeView(activity: Activity) : ActivityView(activity), WeatherTimeC
         }
     }
 
-    override fun showToastNoItemToShow() {
-        val message = activity?.resources?.getString(
-            R.string.message_no_items_to_show
-        )
-        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
+    override fun showToastNoItemToShowError() {
+        showErrorMessage(R.string.message_no_items_to_show)
     }
 
-    override fun showToastNetworkError(error: String) {
-        Toast.makeText(activity, error, Toast.LENGTH_LONG).show()
+    override fun showInsertCityNameError() {
+        showErrorMessage(R.string.message_insert_city_name)
+    }
+
+    override fun showToastNetworkError() {
+        showErrorMessage(R.string.message_network_connection)
+    }
+
+    private fun showErrorMessage(message: Int) {
+        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
 
     override fun hideLoading() {

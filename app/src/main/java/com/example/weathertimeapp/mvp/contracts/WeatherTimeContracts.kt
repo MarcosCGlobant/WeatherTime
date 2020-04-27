@@ -16,8 +16,9 @@ interface WeatherTimeContracts {
         fun showForecastRecyclerView(forecast: Forecast)
         fun hideLoading()
         fun showLoading()
-        fun showToastNetworkError(error: String)
-        fun showToastNoItemToShow()
+        fun showToastNetworkError()
+        fun showToastNoItemToShowError()
+        fun showInsertCityNameError()
     }
 
     interface Presenter {
