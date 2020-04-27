@@ -60,6 +60,11 @@ class WeatherTimeView(activity: Activity) : ActivityView(activity), WeatherTimeC
         Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
 
+    override fun clearViewOnError() {
+        hideCityName()
+        hideRecycler()
+    }
+
     override fun hideLoading() {
         activity?.progressBar?.visibility = View.GONE
         showCityName()

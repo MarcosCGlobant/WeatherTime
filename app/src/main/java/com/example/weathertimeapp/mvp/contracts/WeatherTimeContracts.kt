@@ -19,6 +19,7 @@ interface WeatherTimeContracts {
         fun showToastNetworkError()
         fun showToastNoItemToShowError()
         fun showInsertCityNameError()
+        fun clearViewOnError()
     }
 
     interface Presenter {

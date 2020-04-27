@@ -31,6 +31,7 @@ class WeatherTimePresenter(
             model.getCityId(cityName)?.let { requestCityForecast(it) }
         } else {
             view.showInsertCityNameError()
+            view.clearViewOnError()
         }
     }
 
@@ -38,6 +39,7 @@ class WeatherTimePresenter(
         if (id == UNKNOWN) {
             view.hideLoading()
             view.showToastNoItemToShowError()
+            view.clearViewOnError()
         } else {
             var subscribe = model.getForecastByCityId(id)
                 .subscribeOn(Schedulers.io())
@@ -48,6 +50,7 @@ class WeatherTimePresenter(
                 }, {
                     view.hideLoading()
                     view.showToastNetworkError()
+                    view.clearViewOnError()
                 })
         }
     }
