@@ -12,6 +12,7 @@ import com.example.weathertimeapp.utils.COUNTRY_AR
 import com.example.weathertimeapp.utils.ID
 import com.example.weathertimeapp.utils.NAME
 import com.example.weathertimeapp.utils.UNIT
+import com.example.weathertimeapp.utils.UNKNOWN
 import io.reactivex.Observable
 import org.json.JSONArray
 
@@ -19,10 +20,11 @@ class WeatherTimeModel(private val assetManager: AssetManager) : WeatherTimeCont
 
     private val api: ForecastRequestGenerator = ForecastRequestGenerator()
     private val mapper: ForecastMapperService = ForecastMapperService()
+    private val mapOfCities = mutableMapOf<String, String>()
 
     override fun createListOfCities(): MutableList<String> {
-        val citiesArray = JSONArray(assetManager.open(FILE_NAME).bufferedReader().use { it.readText() })
         val listOfCities = mutableListOf<String>()
+        val citiesArray = JSONArray(assetManager.open(FILE_NAME).bufferedReader().use { it.readText() })
         for (i in 0 until citiesArray.length()) {
             val cityJsonObject = citiesArray.getJSONObject(i)
             if (cityJsonObject.get(COUNTRY) == COUNTRY_AR) {
@@ -31,10 +33,17 @@ class WeatherTimeModel(private val assetManager: AssetManager) : WeatherTimeCont
                     cityJsonObject.get(NAME).toString(),
                     cityJsonObject.get(COUNTRY).toString()
                 )
+                mapOfCities[city.name] = city.id.toString()
                 listOfCities.add(city.name)
             }
         }
         return listOfCities
+    }
+
+    override fun getCityId(cityName: String): Int? {
+        return if (mapOfCities.containsKey(cityName)) {
+            mapOfCities[cityName]?.toInt()
+        } else UNKNOWN
     }
 
     override fun getForecastByCityId(id: Int): Observable<Forecast> {

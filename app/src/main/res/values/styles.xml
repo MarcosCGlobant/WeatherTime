@@ -43,7 +43,6 @@
     </style>
 
     <style name="TextViewCityName">
-        <item name="android:text">@string/activity_main_city_name_text</item>
         <item name="android:textColor">@color/activity_main_city_name_text_color</item>
         <item name="android:textSize">@dimen/activity_main_enter_city_text_size</item>
         <item name="android:textAlignment">center</item>

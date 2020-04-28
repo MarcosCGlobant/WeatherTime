@@ -7,6 +7,8 @@ import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
 import com.example.weathertimeapp.mvp.model.WeatherTimeModel
 import com.example.weathertimeapp.mvp.presenter.WeatherTimePresenter
 import com.example.weathertimeapp.mvp.view.WeatherTimeView
+import kotlinx.android.synthetic.main.activity_main.activity_main_autocomplete_text_view_city
+import kotlinx.android.synthetic.main.activity_main.activity_main_button_search
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,5 +20,13 @@ class MainActivity : AppCompatActivity() {
 
         presenter = WeatherTimePresenter(WeatherTimeModel(this.assets), WeatherTimeView(this))
         presenter.initPresenter()
+
+        initSearchButtonOnClickListener()
+    }
+
+    private fun initSearchButtonOnClickListener() {
+        activity_main_button_search.setOnClickListener {
+            presenter.onSearchButtonPressed(activity_main_autocomplete_text_view_city?.text.toString())
+        }
     }
 }
