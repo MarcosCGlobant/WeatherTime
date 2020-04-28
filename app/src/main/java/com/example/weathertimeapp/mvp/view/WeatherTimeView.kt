@@ -61,35 +61,26 @@ class WeatherTimeView(activity: Activity) : ActivityView(activity), WeatherTimeC
     }
 
     override fun clearViewOnError() {
-        hideCityName()
-        hideRecycler()
+        hideCityData()
     }
 
     override fun hideLoading() {
         activity?.progressBar?.visibility = View.GONE
-        showCityName()
-        showRecycler()
+        showCityData()
     }
 
     override fun showLoading() {
         activity?.progressBar?.visibility = View.VISIBLE
-        hideCityName()
-        hideRecycler()
+        hideCityData()
     }
 
-    private fun hideRecycler() {
+    private fun hideCityData() {
         activity?.main_activity_recycler_view?.visibility = View.GONE
-    }
-
-    private fun showRecycler() {
-        activity?.main_activity_recycler_view?.visibility = View.VISIBLE
-    }
-
-    private fun hideCityName() {
         activity?.activity_main_city_name_text_view?.visibility = View.GONE
     }
 
-    private fun showCityName() {
+    private fun showCityData() {
+        activity?.main_activity_recycler_view?.visibility = View.VISIBLE
         activity?.activity_main_city_name_text_view?.visibility = View.VISIBLE
     }
 }
