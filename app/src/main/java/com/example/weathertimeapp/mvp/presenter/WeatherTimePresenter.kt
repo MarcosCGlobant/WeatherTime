@@ -26,7 +26,7 @@ class WeatherTimePresenter(
     }
 
     override fun onSearchButtonPressed(cityName: String) {
-        if (cityName != EMPTY_STRING) {
+        if (cityName.isEmpty()) {
             view.showLoading()
             model.getCityId(cityName)?.let { requestCityForecast(it) }
         } else {
