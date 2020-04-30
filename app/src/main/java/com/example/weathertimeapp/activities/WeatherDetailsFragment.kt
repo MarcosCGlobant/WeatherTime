@@ -16,14 +16,12 @@ class WeatherDetailsFragment : DialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val rootView: View = inflater.inflate(R.layout.fragment_extended_weather, container, false)
-        val cityId = this.arguments?.getInt(CITY_ID)
-        val date = this.arguments?.getString(DATE)
+        val cityData = Pair(this.arguments?.getInt(CITY_ID),this.arguments?.getString(DATE))
         val weatherDetailPresenter: WeatherDetailsContract.Presenter =
             WeatherDetailsPresenter(
                 WeatherDetailsModel(),
                 WeatherDetailsView(this),
-                cityId,
-                date
+                cityData
             )
         rootView.btn_close.setOnClickListener {
             this.dismiss()
