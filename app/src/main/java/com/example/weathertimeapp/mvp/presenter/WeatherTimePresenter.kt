@@ -1,7 +1,6 @@
 package com.example.weathertimeapp.mvp.presenter
 
 import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
-import com.example.weathertimeapp.utils.EMPTY_STRING
 import com.example.weathertimeapp.utils.UNKNOWN
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -17,7 +16,6 @@ class WeatherTimePresenter(
     }
 
     private fun createAndSetCitiesList() {
-
         view.setCitiesListAdapter(model.createListOfCities())
     }
 
@@ -26,7 +24,7 @@ class WeatherTimePresenter(
     }
 
     override fun onSearchButtonPressed(cityName: String) {
-        if (cityName.isEmpty()) {
+        if (cityName.isNotEmpty()) {
             view.showLoading()
             model.getCityId(cityName)?.let { requestCityForecast(it) }
         } else {

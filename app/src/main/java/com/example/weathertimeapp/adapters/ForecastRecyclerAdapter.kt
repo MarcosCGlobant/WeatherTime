@@ -8,19 +8,22 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.weathertimeapp.R
 import com.example.weathertimeapp.data.entities.Day
+import com.example.weathertimeapp.utils.ZERO
 import kotlinx.android.synthetic.main.layout_weather_list_item.view.image_view_weather_icon
 import kotlinx.android.synthetic.main.layout_weather_list_item.view.text_view_date
 import kotlinx.android.synthetic.main.layout_weather_list_item.view.text_view_description
 import kotlinx.android.synthetic.main.layout_weather_list_item.view.text_view_max_temperature
 import kotlinx.android.synthetic.main.layout_weather_list_item.view.text_view_min_temperature
 
-class ForecastRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ForecastRecyclerAdapter(private val onWeatherListener: OnWeatherListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: List<Day> = ArrayList()
+    private var idCity: Int = ZERO
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ForecastViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.layout_weather_list_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.layout_weather_list_item, parent, false),
+            onWeatherListener, idCity, items
         )
     }
 
@@ -32,13 +35,18 @@ class ForecastRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() 
         return items.size
     }
 
-    fun submitList(daysList: List<Day>) {
+    fun submitList(daysList: List<Day>, cityId: Int) {
         items = daysList
+        idCity = cityId
     }
 
-    class ForecastViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ForecastViewHolder constructor(
+        itemView: View, private val onWeatherListener: OnWeatherListener,
+        private val idCity: Int, private val items: List<Day>
+    ) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         internal fun bind(day: Day) {
+            itemView.setOnClickListener(this)
             itemView.apply {
                 text_view_date.text = day.date
                 text_view_max_temperature.text = "${day.temperature.temp_max.toInt()}$CELSIUS"
@@ -54,6 +62,10 @@ class ForecastRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() 
                     .load("$URL${day.weather.icon}$FORMAT")
                     .into(image_view_weather_icon)
             }
+        }
+
+        override fun onClick(v: View?) {
+            onWeatherListener.onWeatherClick(idCity,items[adapterPosition].date )
         }
 
         companion object {

@@ -9,3 +9,5 @@ const val DEFAULT_ID = 0
 const val DEFAULT_TEMP = 0.0
 const val UNIT = "metric"
 const val UNKNOWN = -1
+const val ZERO = 0
+const val EMPTY_STRING = ""

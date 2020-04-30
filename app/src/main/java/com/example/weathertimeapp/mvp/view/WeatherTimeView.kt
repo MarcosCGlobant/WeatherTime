@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weathertimeapp.R
 import com.example.weathertimeapp.adapters.ForecastRecyclerAdapter
+import com.example.weathertimeapp.adapters.OnWeatherListener
 import com.example.weathertimeapp.data.entities.Forecast
 import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
 import com.example.weathertimeapp.mvp.view.base.ActivityView
@@ -16,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.activity_main_city_name_text
 import kotlinx.android.synthetic.main.activity_main.main_activity_recycler_view
 import kotlinx.android.synthetic.main.activity_main.progressBar
 
-class WeatherTimeView(activity: Activity) : ActivityView(activity), WeatherTimeContracts.View {
+class WeatherTimeView(activity: Activity, private val onWeatherListener: OnWeatherListener) : ActivityView(activity), WeatherTimeContracts.View {
 
     private lateinit var forecastAdapter: ForecastRecyclerAdapter
 
@@ -38,9 +39,9 @@ class WeatherTimeView(activity: Activity) : ActivityView(activity), WeatherTimeC
         activity?.activity_main_city_name_text_view?.text = forecast.city.name
         activity?.main_activity_recycler_view?.apply {
             this.layoutManager = LinearLayoutManager(activity)
-            forecastAdapter = ForecastRecyclerAdapter()
+            forecastAdapter = ForecastRecyclerAdapter(onWeatherListener)
             adapter = forecastAdapter
-            forecastAdapter.submitList(forecast.days)
+            forecastAdapter.submitList(forecast.days, forecast.city.id)
         }
     }
 
