@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.weathertimeapp.R
 import com.example.weathertimeapp.data.entities.Day
-import com.example.weathertimeapp.mvp.contracts.WeatherDetailsContract
+import com.example.weathertimeapp.mvp.contracts.WeatherDetailsContracts
 import com.example.weathertimeapp.mvp.view.base.FragmentView
 import kotlinx.android.synthetic.main.fragment_extended_weather.image_view_weather_icon
 import kotlinx.android.synthetic.main.fragment_extended_weather.progress_bar
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_extended_weather.text_view_pressu
 import kotlinx.android.synthetic.main.fragment_extended_weather.text_view_temp_feels_value
 import kotlinx.android.synthetic.main.fragment_extended_weather.text_view_wind_speed_value
 
-class WeatherDetailsView(fragment: Fragment) : FragmentView(fragment), WeatherDetailsContract.View {
+class WeatherDetailsView(fragment: Fragment) : FragmentView(fragment), WeatherDetailsContracts.View {
 
     override fun showExtendedWeather(day: Day) {
         fragment?.text_view_date?.text = day.date

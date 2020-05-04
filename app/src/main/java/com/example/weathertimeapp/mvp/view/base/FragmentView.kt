@@ -1,6 +1,5 @@
 package com.example.weathertimeapp.mvp.view.base
 
-import android.app.FragmentManager
 import androidx.fragment.app.Fragment
 import java.lang.ref.WeakReference
 

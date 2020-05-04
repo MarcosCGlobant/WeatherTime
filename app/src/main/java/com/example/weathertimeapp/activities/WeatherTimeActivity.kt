@@ -11,7 +11,7 @@ import com.example.weathertimeapp.mvp.view.WeatherTimeView
 import kotlinx.android.synthetic.main.activity_main.activity_main_autocomplete_text_view_city
 import kotlinx.android.synthetic.main.activity_main.activity_main_button_search
 
-class MainActivity : AppCompatActivity(), OnWeatherListener {
+class WeatherTimeActivity : AppCompatActivity(), OnWeatherListener {
 
     private lateinit var presenter: WeatherTimeContracts.Presenter
 

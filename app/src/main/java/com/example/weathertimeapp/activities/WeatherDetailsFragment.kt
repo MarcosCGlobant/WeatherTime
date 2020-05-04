@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.weathertimeapp.R
-import com.example.weathertimeapp.mvp.contracts.WeatherDetailsContract
+import com.example.weathertimeapp.mvp.contracts.WeatherDetailsContracts
 import com.example.weathertimeapp.mvp.model.WeatherDetailsModel
 import com.example.weathertimeapp.mvp.presenter.WeatherDetailsPresenter
 import com.example.weathertimeapp.mvp.view.WeatherDetailsView
@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_extended_weather.view.btn_close
 
 class WeatherDetailsFragment : DialogFragment() {
 
-    private lateinit var weatherDetailPresenter: WeatherDetailsContract.Presenter
+    private lateinit var weatherDetailPresenter: WeatherDetailsContracts.Presenter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val rootView: View = inflater.inflate(R.layout.fragment_extended_weather, container, false)
