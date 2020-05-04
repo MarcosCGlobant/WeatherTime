@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="vertical"
+    tools:context=".activities.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/activity_main_app_title_icon"
+            style="@style/ImageAppIcon"
+            android:contentDescription="@string/icon_app"
+            app:layout_constraintBottom_toTopOf="@+id/activity_main_enter_city_text_view"
+            app:layout_constraintEnd_toStartOf="@+id/activity_main_app_name_text_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/activity_main_app_name_text_view"
+            style="@style/TextViewAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/activity_main_enter_city_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/activity_main_app_title_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/activity_main_enter_city_text_view"
+            style="@style/TextViewEnterCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_app_title_icon" />
+
+        <AutoCompleteTextView
+            android:id="@+id/activity_main_autocomplete_text_view_city"
+            style="@style/AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/activity_main_city_hint_text"
+            app:layout_constraintBottom_toTopOf="@+id/activity_main_button_search"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_enter_city_text_view" />
+
+        <Button
+            android:id="@+id/activity_main_button_search"
+            style="@style/SearchButton"
+            android:background="@drawable/main_activity_search_button_background"
+            app:layout_constraintBottom_toTopOf="@+id/activity_main_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_autocomplete_text_view_city" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/activity_main_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/activity_main_guideline_begin" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_guideline" />
+
+        <TextView
+            android:id="@+id/activity_main_city_name_text_view"
+            style="@style/TextViewCityName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_main_city_name_margin_top"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_guideline" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_activity_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_city_name_text_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
