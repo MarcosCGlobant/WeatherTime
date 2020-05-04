@@ -5,5 +5,6 @@ import com.example.weathertimeapp.utils.DEFAULT_STRING
 data class DayResponse(
     val main: MainResponse,
     val weather: List<WeatherResponse> = listOf(),
+    val wind: WindResponse,
     val dt_txt: String = DEFAULT_STRING
 )

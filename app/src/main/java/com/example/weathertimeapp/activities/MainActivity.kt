@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity(), OnWeatherListener {
         }
     }
 
-    override fun onWeatherClick(cityId: Int, date: String) {
-        val weatherFragment = WeatherDetailsFragment.newInstance(cityId, date)
+    override fun onWeatherClick(cityId: Int, position: Int) {
+        val weatherFragment = WeatherDetailsFragment.newInstance(cityId, position)
         weatherFragment.show(supportFragmentManager, getString(R.string.tag))
     }
 }

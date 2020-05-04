@@ -5,5 +5,6 @@ import com.example.weathertimeapp.utils.DEFAULT_STRING
 data class Day(
     val temperature: Temperature = Temperature(),
     val weather: Weather,
+    val wind: Wind,
     val date: String = DEFAULT_STRING
 )

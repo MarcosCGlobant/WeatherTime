@@ -65,7 +65,7 @@ class ForecastRecyclerAdapter(private val onWeatherListener: OnWeatherListener) 
         }
 
         override fun onClick(v: View?) {
-            onWeatherListener.onWeatherClick(idCity,items[adapterPosition].date )
+            onWeatherListener.onWeatherClick(idCity,adapterPosition )
         }
 
         companion object {

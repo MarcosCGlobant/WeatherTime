@@ -1,37 +1,17 @@
 package com.example.weathertimeapp.data.mapper
 
-import com.example.weathertimeapp.data.entities.City
 import com.example.weathertimeapp.data.entities.Day
-import com.example.weathertimeapp.data.entities.Forecast
 import com.example.weathertimeapp.data.entities.Temperature
 import com.example.weathertimeapp.data.entities.Weather
 import com.example.weathertimeapp.data.entities.Wind
-import com.example.weathertimeapp.data.services.response.CityResponse
 import com.example.weathertimeapp.data.services.response.DayResponse
-import com.example.weathertimeapp.data.services.response.ForecastResponse
 import com.example.weathertimeapp.data.services.response.MainResponse
 import com.example.weathertimeapp.data.services.response.WeatherResponse
 import com.example.weathertimeapp.data.services.response.WindResponse
 
-class ForecastMapperService : BaseMapper<ForecastResponse, Forecast> {
+class ExtendedWeatherMapperService : BaseMapper<DayResponse, Day> {
 
-    override fun transform(type: ForecastResponse): Forecast {
-        type.apply {
-            return Forecast(
-                city = transformCity(city),
-                days = transformToDaysList(list)
-            )
-        }
-    }
-
-    private fun transformToDaysList(list: List<DayResponse>): List<Day> {
-        return list.map()
-        {
-            transformDay(it)
-        }
-    }
-
-    private fun transformDay(type: DayResponse): Day {
+    override fun transform(type: DayResponse): Day {
         lateinit var day: Day
         type.apply {
             day = Day(
@@ -44,21 +24,22 @@ class ForecastMapperService : BaseMapper<ForecastResponse, Forecast> {
         return day
     }
 
-    private fun transformCity(type: CityResponse): City {
+    private fun transformTemperature(type: MainResponse): Temperature {
         type.apply {
-            return City(
-                id = id,
-                name = name,
-                country = COUNTRY_AR
+            return Temperature(
+                temp_feels_like = feels_like,
+                temp_min = temp_max,
+                temp_max = temp_min,
+                pressure = pressure,
+                humidity = humidity
             )
         }
     }
 
-    private fun transformTemperature(type: MainResponse): Temperature {
+    private fun transformWind(type: WindResponse): Wind {
         type.apply {
-            return Temperature(
-                temp_min = temp_max,
-                temp_max = temp_min
+            return Wind(
+                speed = speed
             )
         }
     }
@@ -76,16 +57,7 @@ class ForecastMapperService : BaseMapper<ForecastResponse, Forecast> {
         return weather
     }
 
-    private fun transformWind(type: WindResponse): Wind {
-        type.apply {
-            return Wind(
-                speed = speed
-            )
-        }
-    }
-
     companion object {
         private const val ZERO = 0
-        private const val COUNTRY_AR = "AR"
     }
 }

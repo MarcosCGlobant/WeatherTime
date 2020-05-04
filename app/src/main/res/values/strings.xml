@@ -13,4 +13,8 @@
     <string name="message_network_connection">Network connection problem, try again later</string>
     <string name="tag">tag</string>
     <string name="close_button_image">close button image</string>
+    <string name="temp_fells">Temp Fells:</string>
+    <string name="pressure">Pressure:</string>
+    <string name="humidity">Humidity:</string>
+    <string name="wind_speed">Wind Speed:</string>
 </resources>
