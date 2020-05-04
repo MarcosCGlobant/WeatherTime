@@ -1,19 +1,19 @@
-package com.example.weathertimeapp.activities
+package com.example.weathertimeapp.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.weathertimeapp.R
-import com.example.weathertimeapp.adapters.OnWeatherListener
-import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
+import com.example.weathertimeapp.adapter.OnWeatherListener
+import com.example.weathertimeapp.mvp.contract.WeatherTimeContract
 import com.example.weathertimeapp.mvp.model.WeatherTimeModel
 import com.example.weathertimeapp.mvp.presenter.WeatherTimePresenter
 import com.example.weathertimeapp.mvp.view.WeatherTimeView
 import kotlinx.android.synthetic.main.activity_main.activity_main_autocomplete_text_view_city
 import kotlinx.android.synthetic.main.activity_main.activity_main_button_search
 
-class MainActivity : AppCompatActivity(), OnWeatherListener {
+class WeatherTimeActivity : AppCompatActivity(), OnWeatherListener {
 
-    private lateinit var presenter: WeatherTimeContracts.Presenter
+    private lateinit var presenter: WeatherTimeContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity(), OnWeatherListener {
         }
     }
 
-    override fun onWeatherClick(cityId: Int, date: String) {
-        val weatherFragment = WeatherDetailsFragment.newInstance(cityId, date)
+    override fun onWeatherClick(cityId: Int, position: Int) {
+        val weatherFragment = WeatherDetailsFragment.newInstance(cityId, position)
         weatherFragment.show(supportFragmentManager, getString(R.string.tag))
     }
 }

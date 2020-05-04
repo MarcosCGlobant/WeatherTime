@@ -1,4 +1,4 @@
-package com.example.weathertimeapp.adapters
+package com.example.weathertimeapp.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.weathertimeapp.R
-import com.example.weathertimeapp.data.entities.Day
-import com.example.weathertimeapp.utils.ZERO
+import com.example.weathertimeapp.data.entity.Day
+import com.example.weathertimeapp.util.ZERO
 import kotlinx.android.synthetic.main.layout_weather_list_item.view.image_view_weather_icon
 import kotlinx.android.synthetic.main.layout_weather_list_item.view.text_view_date
 import kotlinx.android.synthetic.main.layout_weather_list_item.view.text_view_description
@@ -65,7 +65,7 @@ class ForecastRecyclerAdapter(private val onWeatherListener: OnWeatherListener) 
         }
 
         override fun onClick(v: View?) {
-            onWeatherListener.onWeatherClick(idCity,items[adapterPosition].date )
+            onWeatherListener.onWeatherClick(idCity,adapterPosition )
         }
 
         companion object {

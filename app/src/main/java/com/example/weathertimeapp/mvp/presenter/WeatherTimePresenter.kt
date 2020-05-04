@@ -1,14 +1,14 @@
 package com.example.weathertimeapp.mvp.presenter
 
-import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
-import com.example.weathertimeapp.utils.UNKNOWN
+import com.example.weathertimeapp.mvp.contract.WeatherTimeContract
+import com.example.weathertimeapp.util.UNKNOWN
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class WeatherTimePresenter(
-    private val model: WeatherTimeContracts.Model,
-    private val view: WeatherTimeContracts.View
-) : WeatherTimeContracts.Presenter {
+    private val model: WeatherTimeContract.Model,
+    private val view: WeatherTimeContract.View
+) : WeatherTimeContract.Presenter {
 
     override fun initPresenter() {
         createAndSetCitiesList()

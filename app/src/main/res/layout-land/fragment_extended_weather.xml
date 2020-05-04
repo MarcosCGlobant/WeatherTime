@@ -10,29 +10,29 @@
         style="@style/TextViewTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/text_view_temp_feels_text"
-        app:layout_constraintEnd_toStartOf="@+id/image_view_weather_icon"
+        app:layout_constraintBottom_toTopOf="@+id/image_view_weather_icon"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/btn_close" />
 
     <ImageView
         android:id="@+id/image_view_weather_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ImageViewWeather"
         android:contentDescription="@string/weather_image"
         app:layout_constraintBottom_toTopOf="@+id/text_view_temp_feels_value"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_view_date"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_date" />
 
     <TextView
         android:id="@+id/text_view_temp_feels_text"
         style="@style/TextViewDescriptionWeather"
         android:layout_height="wrap_content"
+        android:text="@string/temp_fells"
         app:layout_constraintBottom_toTopOf="@+id/text_view_max_temperature"
         app:layout_constraintEnd_toStartOf="@+id/text_view_temp_feels_value"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_date" />
+        app:layout_constraintTop_toBottomOf="@+id/image_view_weather_icon" />
 
     <TextView
         android:id="@+id/text_view_temp_feels_value"
@@ -45,6 +45,7 @@
 
     <TextView
         android:id="@+id/text_view_max_temperature"
+        style="@style/TextViewMaxTempWeather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/text_view_description"
@@ -54,6 +55,7 @@
 
     <TextView
         android:id="@+id/text_view_min_temperature"
+        style="@style/TextViewMinTempWeather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/text_view_description"
@@ -74,6 +76,7 @@
         android:id="@+id/text_view_pressure_text"
         style="@style/TextViewDescriptionWeather"
         android:layout_height="wrap_content"
+        android:text="@string/pressure"
         app:layout_constraintBottom_toTopOf="@+id/text_view_humidity_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_description" />
@@ -91,6 +94,7 @@
         android:id="@+id/text_view_humidity_text"
         style="@style/TextViewDescriptionWeather"
         android:layout_height="wrap_content"
+        android:text="@string/humidity"
         app:layout_constraintBottom_toTopOf="@+id/text_view_wind_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_pressure_text" />
@@ -108,6 +112,7 @@
         android:id="@+id/text_view_wind_text"
         style="@style/TextViewDescriptionWeather"
         android:layout_height="wrap_content"
+        android:text="@string/wind_speed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_humidity_text" />
