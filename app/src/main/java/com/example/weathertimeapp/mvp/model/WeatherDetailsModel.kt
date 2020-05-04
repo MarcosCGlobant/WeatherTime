@@ -1,14 +1,14 @@
 package com.example.weathertimeapp.mvp.model
 
-import com.example.weathertimeapp.data.entities.Day
+import com.example.weathertimeapp.data.entity.Day
 import com.example.weathertimeapp.data.mapper.ExtendedWeatherMapperService
-import com.example.weathertimeapp.data.services.ForecastRequestGenerator
-import com.example.weathertimeapp.data.services.api.WeatherTimeApi
-import com.example.weathertimeapp.mvp.contracts.WeatherDetailsContracts
-import com.example.weathertimeapp.utils.UNIT
+import com.example.weathertimeapp.data.service.ForecastRequestGenerator
+import com.example.weathertimeapp.data.service.api.WeatherTimeApi
+import com.example.weathertimeapp.mvp.contract.WeatherDetailsContract
+import com.example.weathertimeapp.util.UNIT
 import io.reactivex.Observable
 
-class WeatherDetailsModel : WeatherDetailsContracts.Model {
+class WeatherDetailsModel : WeatherDetailsContract.Model {
 
     private val api: ForecastRequestGenerator = ForecastRequestGenerator()
     private val mapper: ExtendedWeatherMapperService = ExtendedWeatherMapperService()

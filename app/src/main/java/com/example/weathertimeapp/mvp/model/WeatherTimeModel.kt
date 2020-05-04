@@ -1,22 +1,22 @@
 package com.example.weathertimeapp.mvp.model
 
 import android.content.res.AssetManager
-import com.example.weathertimeapp.data.entities.City
-import com.example.weathertimeapp.data.entities.Forecast
+import com.example.weathertimeapp.data.entity.City
+import com.example.weathertimeapp.data.entity.Forecast
 import com.example.weathertimeapp.data.mapper.ForecastMapperService
-import com.example.weathertimeapp.data.services.ForecastRequestGenerator
-import com.example.weathertimeapp.data.services.api.WeatherTimeApi
-import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
-import com.example.weathertimeapp.utils.COUNTRY
-import com.example.weathertimeapp.utils.COUNTRY_AR
-import com.example.weathertimeapp.utils.ID
-import com.example.weathertimeapp.utils.NAME
-import com.example.weathertimeapp.utils.UNIT
-import com.example.weathertimeapp.utils.UNKNOWN
+import com.example.weathertimeapp.data.service.ForecastRequestGenerator
+import com.example.weathertimeapp.data.service.api.WeatherTimeApi
+import com.example.weathertimeapp.mvp.contract.WeatherTimeContract
+import com.example.weathertimeapp.util.COUNTRY
+import com.example.weathertimeapp.util.COUNTRY_AR
+import com.example.weathertimeapp.util.ID
+import com.example.weathertimeapp.util.NAME
+import com.example.weathertimeapp.util.UNIT
+import com.example.weathertimeapp.util.UNKNOWN
 import io.reactivex.Observable
 import org.json.JSONArray
 
-class WeatherTimeModel(private val assetManager: AssetManager) : WeatherTimeContracts.Model {
+class WeatherTimeModel(private val assetManager: AssetManager) : WeatherTimeContract.Model {
 
     private val api: ForecastRequestGenerator = ForecastRequestGenerator()
     private val mapper: ForecastMapperService = ForecastMapperService()

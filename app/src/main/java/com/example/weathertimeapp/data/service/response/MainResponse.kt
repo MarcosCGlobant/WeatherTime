@@ -1,7 +1,7 @@
-package com.example.weathertimeapp.data.services.response
+package com.example.weathertimeapp.data.service.response
 
-import com.example.weathertimeapp.utils.DEFAULT_INT
-import com.example.weathertimeapp.utils.DEFAULT_TEMP
+import com.example.weathertimeapp.util.DEFAULT_INT
+import com.example.weathertimeapp.util.DEFAULT_TEMP
 
 data class MainResponse(
     val feels_like: Double = DEFAULT_TEMP,

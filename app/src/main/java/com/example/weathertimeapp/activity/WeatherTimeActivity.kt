@@ -1,10 +1,10 @@
-package com.example.weathertimeapp.activities
+package com.example.weathertimeapp.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.weathertimeapp.R
-import com.example.weathertimeapp.adapters.OnWeatherListener
-import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
+import com.example.weathertimeapp.adapter.OnWeatherListener
+import com.example.weathertimeapp.mvp.contract.WeatherTimeContract
 import com.example.weathertimeapp.mvp.model.WeatherTimeModel
 import com.example.weathertimeapp.mvp.presenter.WeatherTimePresenter
 import com.example.weathertimeapp.mvp.view.WeatherTimeView
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_main.activity_main_button_search
 
 class WeatherTimeActivity : AppCompatActivity(), OnWeatherListener {
 
-    private lateinit var presenter: WeatherTimeContracts.Presenter
+    private lateinit var presenter: WeatherTimeContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

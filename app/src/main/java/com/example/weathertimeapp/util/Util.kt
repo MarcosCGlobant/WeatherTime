@@ -1,4 +1,4 @@
-package com.example.weathertimeapp.utils
+package com.example.weathertimeapp.util
 
 const val ID = "id"
 const val NAME = "name"

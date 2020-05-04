@@ -7,17 +7,17 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weathertimeapp.R
-import com.example.weathertimeapp.adapters.ForecastRecyclerAdapter
-import com.example.weathertimeapp.adapters.OnWeatherListener
-import com.example.weathertimeapp.data.entities.Forecast
-import com.example.weathertimeapp.mvp.contracts.WeatherTimeContracts
+import com.example.weathertimeapp.adapter.ForecastRecyclerAdapter
+import com.example.weathertimeapp.adapter.OnWeatherListener
+import com.example.weathertimeapp.data.entity.Forecast
+import com.example.weathertimeapp.mvp.contract.WeatherTimeContract
 import com.example.weathertimeapp.mvp.view.base.ActivityView
 import kotlinx.android.synthetic.main.activity_main.activity_main_autocomplete_text_view_city
 import kotlinx.android.synthetic.main.activity_main.activity_main_city_name_text_view
 import kotlinx.android.synthetic.main.activity_main.main_activity_recycler_view
 import kotlinx.android.synthetic.main.activity_main.progressBar
 
-class WeatherTimeView(activity: Activity, private val onWeatherListener: OnWeatherListener) : ActivityView(activity), WeatherTimeContracts.View {
+class WeatherTimeView(activity: Activity, private val onWeatherListener: OnWeatherListener) : ActivityView(activity), WeatherTimeContract.View {
 
     private lateinit var forecastAdapter: ForecastRecyclerAdapter
 

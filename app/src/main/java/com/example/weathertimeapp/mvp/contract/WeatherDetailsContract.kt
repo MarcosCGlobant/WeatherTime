@@ -1,9 +1,9 @@
-package com.example.weathertimeapp.mvp.contracts
+package com.example.weathertimeapp.mvp.contract
 
-import com.example.weathertimeapp.data.entities.Day
+import com.example.weathertimeapp.data.entity.Day
 import io.reactivex.Observable
 
-interface WeatherDetailsContracts {
+interface WeatherDetailsContract {
     interface Model {
         fun getExtendedWeather(cityData: Pair<Int, Int>): Observable<Day>
     }

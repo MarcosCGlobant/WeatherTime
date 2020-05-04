@@ -1,4 +1,4 @@
-package com.example.weathertimeapp.data.entities
+package com.example.weathertimeapp.data.entity
 
 data class Forecast(
     val days: List<Day> = listOf(),

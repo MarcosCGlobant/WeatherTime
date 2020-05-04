@@ -1,9 +1,9 @@
-package com.example.weathertimeapp.mvp.contracts
+package com.example.weathertimeapp.mvp.contract
 
-import com.example.weathertimeapp.data.entities.Forecast
+import com.example.weathertimeapp.data.entity.Forecast
 import io.reactivex.Observable
 
-interface WeatherTimeContracts {
+interface WeatherTimeContract {
     interface Model {
         fun createListOfCities(): MutableList<String>
         fun getCityId(cityName: String): Int?
