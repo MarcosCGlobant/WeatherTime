@@ -53,4 +53,10 @@ dependencies {
     implementation lib.rxandroid
     implementation lib.rxjava
     implementation lib.rxcalladapter
+    implementation lib.junit
+    implementation lib.junitandroidx
+    implementation lib.mockitokotlin2
+    implementation lib.mockitoinline
+    implementation lib.mockito_core
+    implementation lib.coreTest
 }

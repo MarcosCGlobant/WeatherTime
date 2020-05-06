@@ -2,6 +2,7 @@ package com.example.weathertimeapp.mvp.contract
 
 import com.example.weathertimeapp.data.entity.Forecast
 import io.reactivex.Observable
+import org.json.JSONArray
 
 interface WeatherTimeContract {
     interface Model {
