@@ -8,7 +8,7 @@
     <string name="weather_icon">weather icon</string>
     <string name="weather_image">weather image</string>
     <string name="icon_app">icon_app</string>
-    <string name="message_no_items_to_show">No data to show</string>
+    <string name="message_no_items_to_show">Wrong city or no data to show</string>
     <string name="message_insert_city_name">Insert city name</string>
     <string name="message_network_connection">Network connection problem, try again later</string>
     <string name="tag">tag</string>

@@ -20,7 +20,7 @@ class ForecastMapperService : BaseMapper<ForecastResponse, Forecast> {
         transformCity(type.city)
     )
 
-    private fun transformToDaysList(list: List<DayResponse>): List<Day> = list.map() { transformDay(it) }
+    private fun transformToDaysList(list: List<DayResponse>): List<Day> = list.map { transformDay(it) }
 
     private fun transformDay(type: DayResponse): Day = Day(
         transformTemperature(type.main),
